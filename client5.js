@@ -47,12 +47,12 @@ function init() {
 
   // Material to be added to model
   var newMaterial = new THREE.MeshStandardMaterial({
-    color: 0x2E5939
+    color: 0x2E5239
   });
 
   // Load GLTF model, add material, and add it to the scene
   const loader = new GLTFLoader().load(
-    "./assets/testing123fogv3.glb",
+    "./assets/teddybear.glb",
     function(gltf) {
       // Scan loaded model for mesh and apply defined material if mesh is present
       gltf.scene.traverse(function(child) {
@@ -64,7 +64,7 @@ function init() {
       mesh = gltf.scene;
       mesh.position.set(0, 0, 0);
       mesh.rotation.set(0.349066, 0, 0); // <-- changed to better display texture
-      mesh.scale.set(.2, .2, .2);
+      mesh.scale.set(.5, .5, .5);
       // Add model to scene
       scene.add(mesh);
     },
@@ -82,7 +82,7 @@ function init() {
   scene.add(directionalLight);
 
   // Add an ambient light to the scene
-  const ambientLight = new THREE.AmbientLight(0xffffff, .97);
+  const ambientLight = new THREE.AmbientLight(0x4f50f3, .97);
   scene.add(ambientLight);
 
   // Add AsciiEffect
@@ -91,7 +91,7 @@ function init() {
   });
   effect.setSize(500, 500);
   effect.domElement.style.color = '#6E2E99';
-  effect.domElement.style.backgroundColor = '#2E9939';
+  effect.domElement.style.backgroundColor = '#baf1f7';
 
   // Add scene to gltf.html
   container.appendChild(effect.domElement);
